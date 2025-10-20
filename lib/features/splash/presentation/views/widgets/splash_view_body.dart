@@ -1,5 +1,7 @@
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,16 +19,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     // TODO: implement initState
     super.initState();
-
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 1),
-    );
-    animation = Tween<Offset>(
-      begin: Offset(0, 6),
-      end: Offset.zero,
-    ).animate(animationController);
-    animationController.forward();
+    initSlidingAnimation();
   }
 
   void dispose() {
@@ -40,7 +33,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset('assets/images/Logo.png'),
+        Image.asset(Assets.logo),
         const SizedBox(height: 10),
         AnimatedBuilder(
           animation: animationController,
@@ -56,5 +49,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
         ),
       ],
     );
+  }
+
+  void navigateRouter() {
+    Future.delayed(const Duration(seconds: 3), () {
+      GoRouter.of(context).push(AppRouter.kHomeView);
+    });
+  }
+
+  void initSlidingAnimation() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+    animation = Tween<Offset>(
+      begin: Offset(0, 6),
+      end: Offset.zero,
+    ).animate(animationController);
+    animationController.forward();
   }
 }
