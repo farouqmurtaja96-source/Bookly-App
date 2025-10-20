@@ -6,12 +6,15 @@ class HomeViewTopBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.asset(Assets.logo, scale: 3),
-        const Spacer(),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      child: Row(
+        children: [
+          Image.asset(Assets.logo, scale: 3),
+          const Spacer(),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        ],
+      ),
     );
   }
 }
