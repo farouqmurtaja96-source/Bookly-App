@@ -20,6 +20,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     // TODO: implement initState
     super.initState();
     initSlidingAnimation();
+    navigateRouter();
   }
 
   void dispose() {
