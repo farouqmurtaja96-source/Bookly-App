@@ -13,7 +13,6 @@ class _BooksSliderState extends State<BooksSlider> {
   double scrollPosition = 0.0;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     scrollController.addListener(() {
       setState(() {
@@ -33,7 +32,6 @@ class _BooksSliderState extends State<BooksSlider> {
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             double itmeWidth = MediaQuery.of(context).size.width * 0.28;
-            double baseScale = 1;
 
             double distance = (scrollPosition / itmeWidth - index).abs();
             double scale = (1.2 - (distance * 0.2)).clamp(1, 1.2);
@@ -53,10 +51,13 @@ class _BooksSliderState extends State<BooksSlider> {
                       bottom: 15,
                     ),
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeInOut,
                 // margin: const EdgeInsets.only(left: 12, top: 40, bottom: 15),
-                child: Transform.scale(scale: scale, child: CustomImageBook()),
+                child: Transform.scale(
+                  scale: scale,
+                  child: const CustomImageBook(),
+                ),
               ),
             );
           },
