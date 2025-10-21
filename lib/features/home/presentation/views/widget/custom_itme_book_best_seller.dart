@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/presentation/views/widget/rating_itme.dart';
 import 'package:flutter/material.dart';
 
 class CustomItmeBookBestSeller extends StatelessWidget {
@@ -49,23 +50,6 @@ class CustomItmeBookBestSeller extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class RatingItme extends StatelessWidget {
-  const RatingItme({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(Icons.star, color: Colors.yellow),
-        const SizedBox(width: 5),
-        const Text('4.8', style: Styles.textStyle16),
-        const SizedBox(width: 5),
-        Text('(2390)', style: Styles.textStyle14.copyWith(color: Colors.grey)),
-      ],
     );
   }
 }
