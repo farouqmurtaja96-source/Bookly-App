@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/custom_buttom.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentation/views/widget/app_bar_details_view.dart';
 import 'package:bookly/features/home/presentation/views/widget/custom_image_book.dart';
@@ -53,6 +54,33 @@ class BodyDetailsView extends StatelessWidget {
         ),
         const SizedBox(height: 20),
         const RatingItme(),
+        const SizedBox(height: 40),
+        const Row(
+          children: [
+            Expanded(
+              child: CustomButtom(
+                backgroundColor: Colors.white,
+                text: '19.99€',
+                textColor: Colors.black,
+                radius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+            ),
+            Expanded(
+              child: CustomButtom(
+                backgroundColor: Color(0xffEF8262),
+                text: 'Free Preview',
+                textColor: Colors.white,
+                radius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }
