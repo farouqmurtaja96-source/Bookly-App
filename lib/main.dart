@@ -1,6 +1,7 @@
 import 'package:bookly/core/utils/api_services.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/constants.dart';
+import 'package:bookly/core/utils/service_locator.dart';
 import 'package:bookly/features/home/data/repo/home_repo.dart';
 import 'package:bookly/features/home/data/repo/home_repo_imlp.dart';
 import 'package:bookly/features/home/presentation/manger/feature_books_cubit/feature_books_cubit.dart';
@@ -23,12 +24,12 @@ class Bookly extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) =>
-              FeatureBooksCubit(HomeRepoImpl(apiServices: ApiServices()))
+              FeatureBooksCubit(getit.get<HomeRepoImpl>())
                 ..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create: (context) =>
-              NewstBooksCubit(HomeRepoImpl(apiServices: ApiServices()))..
+              NewstBooksCubit(getit.get<HomeRepoImpl>())..fetchNewsetBooks(),
         ),
       ],
       child: MaterialApp.router(
