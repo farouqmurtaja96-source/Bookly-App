@@ -35,6 +35,7 @@ class _BooksSliderState extends State<BooksSlider> {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
+                itemCount: state.books.length,
                 itemBuilder: (context, index) {
                   double itmeWidth = MediaQuery.of(context).size.width * 0.28;
 
@@ -61,7 +62,13 @@ class _BooksSliderState extends State<BooksSlider> {
                       // margin: const EdgeInsets.only(left: 12, top: 40, bottom: 15),
                       child: Transform.scale(
                         scale: scale,
-                        child: const CustomImageBook(),
+                        child: CustomImageBook(
+                          imgurl: state
+                              .books[index]
+                              .volumeInfo
+                              .imageLinks!
+                              .thumbnail,
+                        ),
                       ),
                     ),
                   );

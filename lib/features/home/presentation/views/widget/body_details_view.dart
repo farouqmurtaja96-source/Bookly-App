@@ -15,7 +15,7 @@ class BodyDetailsView extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.22,
           ),
-          child: CustomImageBook(),
+          child: CustomImageBook(imgurl: ''),
         ),
         const SizedBox(height: 40),
         Text(

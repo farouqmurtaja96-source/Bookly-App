@@ -9,9 +9,9 @@ class RecommendList extends StatelessWidget {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return const Padding(
+        return Padding(
           padding: EdgeInsets.only(right: 8.0),
-          child: CustomImageBook(),
+          child: CustomImageBook(imgurl: ''),
         );
       },
     );
