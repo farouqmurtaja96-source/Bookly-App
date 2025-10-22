@@ -10,15 +10,22 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 15),
-            HomeViewTopBody(),
-            SizedBox(height: 15),
-            BooksSlider(),
-            SizedBox(height: 25),
-            Expanded(child: BestSeller()),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 15),
+                  HomeViewTopBody(),
+                  SizedBox(height: 15),
+                  BooksSlider(),
+                  SizedBox(height: 25),
+                ],
+              ),
+            ),
+            SliverFillRemaining(child: BestSeller()),
           ],
         ),
       ),
