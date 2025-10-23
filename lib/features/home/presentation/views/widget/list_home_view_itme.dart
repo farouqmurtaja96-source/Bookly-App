@@ -43,19 +43,12 @@ class _BooksSliderState extends State<BooksSlider> {
                   double scale = (1.2 - (distance * 0.2)).clamp(1, 1.2);
 
                   return Padding(
-                    padding: scrollPosition == index
-                        ? const EdgeInsets.only(
-                            right: 12,
-                            left: 12,
-                            top: 40,
-                            bottom: 15,
-                          )
-                        : const EdgeInsets.only(
-                            right: 0,
-                            left: 12,
-                            top: 40,
-                            bottom: 15,
-                          ),
+                    padding: const EdgeInsets.only(
+                      right: 12,
+                      left: 12,
+                      top: 40,
+                      bottom: 15,
+                    ),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 500),
                       curve: Curves.easeInOut,
