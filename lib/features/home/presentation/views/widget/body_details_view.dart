@@ -28,7 +28,7 @@ class BodyDetailsView extends StatelessWidget {
           child: Text('Rudyard Kipling', style: Styles.textStyle18),
         ),
         const SizedBox(height: 20),
-        const RatingItme(),
+        RatingItme(rating: 0, counting: 0),
         const SizedBox(height: 40),
         const Row(
           children: [
