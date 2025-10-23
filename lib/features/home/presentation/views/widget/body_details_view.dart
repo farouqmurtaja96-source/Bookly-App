@@ -1,12 +1,13 @@
 import 'package:bookly/core/utils/custom_buttom.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/home/data/model/book_model/book_model.dart';
 import 'package:bookly/features/home/presentation/views/widget/custom_image_book.dart';
 import 'package:bookly/features/home/presentation/views/widget/rating_itme.dart';
 import 'package:flutter/material.dart';
 
 class BodyDetailsView extends StatelessWidget {
-  const BodyDetailsView({super.key});
-
+  const BodyDetailsView({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,20 +16,29 @@ class BodyDetailsView extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.22,
           ),
-          child: CustomImageBook(imgurl: ''),
+          child: CustomImageBook(
+            imgurl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+          ),
         ),
         const SizedBox(height: 40),
         Text(
-          'The Jungle Book',
+          bookModel.volumeInfo.title ?? '',
           style: Styles.textStyle30.copyWith(fontWeight: FontWeight.normal),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(height: 13),
-        const Opacity(
+        Opacity(
           opacity: 0.7,
-          child: Text('Rudyard Kipling', style: Styles.textStyle18),
+          child: Text(
+            bookModel.volumeInfo.authors?[0] ?? '',
+            style: Styles.textStyle18,
+          ),
         ),
         const SizedBox(height: 20),
-        RatingItme(rating: 0, counting: 0),
+        RatingItme(
+          rating: bookModel.volumeInfo.averageRating ?? 0,
+          counting: bookModel.volumeInfo.ratingsCount ?? 0,
+        ),
         const SizedBox(height: 40),
         const Row(
           children: [

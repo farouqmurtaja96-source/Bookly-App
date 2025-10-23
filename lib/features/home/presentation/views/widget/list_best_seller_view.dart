@@ -17,12 +17,16 @@ class ListBestSellerView extends StatelessWidget {
             shrinkWrap: false,
             physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
+            itemCount: state.newstBooks.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 12.0),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).push(AppRouter.kdetailsView);
+                    GoRouter.of(context).push(
+                      AppRouter.kdetailsView,
+                      extra: state.newstBooks[index],
+                    );
                   },
                   child: CustomItmeBookBestSeller(
                     bookModel: state.newstBooks[index],
